@@ -1,0 +1,19 @@
+.description {
+  height: 14vh;
+
+  padding: 0 10px;
+  padding-top: 10px;
+  box-sizing: border-box;
+
+  & h3 {
+    @include margin-killer;
+    font-size: $tablet-table-heading-size;
+    line-height: $tablet-table-heading-height;
+  }
+
+  & p {
+    @include margin-killer;
+    font-size: $general-text-size;
+    line-height: $general-text-line-height;
+  }
+}

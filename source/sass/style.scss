@@ -1,0 +1,22 @@
+@import "fonts.scss";
+@import "normalize.scss";
+@import "variables.scss";
+@import "slider/slider.scss";
+@import "image.container/image-container.scss";
+@import "description/description.scss";
+@import "tabs/tabs.scss";
+
+body {
+  position: relative;
+
+  font-family: "Open Sans", "Arial", sans-serif;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  clip: rect(0, 0, 0, 0);
+}

@@ -1,0 +1,132 @@
+.slider-container {
+  width: 100%;
+  height: 100%;
+
+  padding-bottom: 13px;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  padding-bottom: 30px;
+  box-sizing: border-box;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+
+  bottom: -17px;
+
+  color: #ffffff;
+  text-align: center;
+}
+
+.slider-list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.slide {
+  display: none;
+}
+
+.slider-controls {
+  z-index: 20;
+
+  font-size: 0;
+}
+
+.slider-controls label {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 7px;
+
+  vertical-align: top;
+
+  background-color: transparent;
+  border: 2px solid #545454;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/*#product-1:checked ~ .wrapper {
+  background-color: #849d8f;
+  background-image: url("http://placehold.it/200x600");
+}
+
+#product-2:checked ~ .wrapper {
+  background-color: #8996a6;
+  background-image: url("http://placehold.it/600x250");
+}
+
+#product-3:checked ~ .wrapper {
+  background-color: #8996a6;
+  background-image: url("http://placehold.it/300");
+}
+
+#product-4:checked ~ .wrapper {
+  background-color: #8996a6;
+  background-image: url("http://placehold.it/100");
+
+}
+
+#product-5:checked ~ .wrapper {
+  background-color: #8996a6;
+  background-image: url("http://placehold.it/300");
+}
+
+#product-6:checked ~ .wrapper {
+  background-color: #8996a6;
+  background-image: url("http://placehold.it/300");
+}
+
+#product-7:checked ~ .wrapper {
+  background-color: #8996a6;
+  background-image: url("http://placehold.it/300");
+}
+
+#product-8:checked ~ .wrapper {
+  background-color: #8996a6;
+  background-image: url("http://placehold.it/300");
+}
+
+#product-9:checked ~ .wrapper {
+  background-color: #8996a6;
+  background-image: url("http://placehold.it/300");
+}*/
+
+#product-1:checked ~ .wrapper #slide1,
+#product-2:checked ~ .wrapper #slide2,
+#product-3:checked ~ .wrapper #slide3,
+#product-4:checked ~ .wrapper #slide4,
+#product-5:checked ~ .wrapper #slide5,
+#product-6:checked ~ .wrapper #slide6,
+#product-7:checked ~ .wrapper #slide7,
+#product-8:checked ~ .wrapper #slide8,
+#product-9:checked ~ .wrapper #slide9 {
+  display: block;
+}
+
+#product-1:checked ~ .wrapper label[for="product-1"],
+#product-2:checked ~ .wrapper label[for="product-2"],
+#product-3:checked ~ .wrapper label[for="product-3"],
+#product-4:checked ~ .wrapper label[for="product-4"],
+#product-5:checked ~ .wrapper label[for="product-5"],
+#product-6:checked ~ .wrapper label[for="product-6"],
+#product-7:checked ~ .wrapper label[for="product-7"],
+#product-8:checked ~ .wrapper label[for="product-8"],
+#product-9:checked ~ .wrapper label[for="product-9"] {
+  background-color: #bababa;
+}

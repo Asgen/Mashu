@@ -1,0 +1,25 @@
+.tabs {
+  height: 13vh;
+
+  text-align: center;
+
+  &__wrapper {
+    display: flex;
+
+    overflow: auto;
+  }
+
+  &__tab {
+    display: inline-block;
+
+    width: 70px;
+    height: 70px;
+    margin-right: 5px;
+
+    flex-shrink: 0;
+
+    background-color: lightblue;
+
+    font-size: 0;
+  }
+}

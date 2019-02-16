@@ -1,0 +1,26 @@
+.image-container {
+  height: 73vh;
+
+  box-sizing: border-box;
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+
+    padding: 5px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__bgpic {
+    width: 100%;
+    height: 100%;
+    background-image: url("http://placehold.it/300");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+}

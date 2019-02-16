@@ -1,0 +1,74 @@
+$main-color: #283645;
+$opacity-color: rgba(40, 54, 69, 0.3);
+$opacity-color-05: rgba(40, 54, 69, 0.5);
+$slider-bellet-on-hover: rgba(40, 54, 69, 0.6);
+$slider-bellet-active: rgba(40, 54, 69, 0.1);
+$opacity-color-1: rgba(0, 0, 0, 0.1);
+$pink-color: #d22856;
+$pink-transparent: rgba(210, 40, 86, 0.3);
+$gray-color: #f2f2f2;
+$dark-gray-color: #e5e5e5;
+$white-color: #ffffff;
+$white-transparent: rgba(255, 255, 255, 0.3);
+$black-color: #000000;
+$black-color-opacity: rgba(0, 0, 0, 0.3);
+$green-color: #2aab6d;
+$green-color-hover: #1c9b5e;
+
+$tablet-width: 660px;
+$desktop-width: 960px;
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
+
+$tablet-table-heading-size: 15px;
+$tablet-table-heading-height: 19px;
+$general-text-size: 14px;
+$general-text-line-height: 17px;
+
+
+@mixin general-heading-bold {
+  font-size: $general-heading-size;
+  line-height: $heading-line-height;
+  font-weight: bold;
+}
+
+@mixin general-heading-normal {
+  font-size: $general-heading-size;
+  line-height: $heading-line-height;
+  font-weight: normal;
+}
+
+@mixin general-heading-tablet {
+  font-size: $general-heading-size-tablet;
+  line-height: $heading-line-height-tablet;
+  font-weight: 300;
+}
+
+@mixin general-heading-desktop {
+  font-size: $general-heading-size-desktop;
+  line-height: $heading-line-height-desktop;
+  font-weight: 300;
+}
+
+@mixin general-text-std {
+  font-size: $general-text-size;
+  line-height: $text-line-height;
+  font-weight: normal;
+}
+
+@mixin general-text-lengthy {
+  font-size: $general-text-size;
+  line-height: $heading-line-height;
+  font-weight: normal;
+}
+
+@mixin list-killer {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin margin-killer {
+  margin: 0;
+  padding: 0;
+}
