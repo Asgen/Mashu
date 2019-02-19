@@ -1,4 +1,63 @@
 (function () {
+  // Swipe
+  var cons = window.data.Swipe;
+  // Create a new 'change' event
+  var changeEvent = new Event('change');
+  var swipeStart = function (e) {
+    e = e ? e : window.event;
+    e = ('changedTouches' in e)?e.changedTouches[0] : e;
+    cons.TOUCH_START_COORDS = {'x':e.pageX, 'y':e.pageY};
+    cons.START_TIME = new Date().getTime();
+  };
+
+  var swipeMove = function (e){
+    e = e ? e : window.event;
+    e.preventDefault();
+  };
+
+  var swipeEnd = function (e, slides) {
+    var inputs = document.querySelectorAll('input[type="radio"]');
+    var radioOn = document.querySelector('input[type="radio"]:checked');
+    var index;
+    e = e ? e : window.event;
+    e = ('changedTouches' in e)?e.changedTouches[0] : e;
+    cons.TOUCH_END_COORDS = {'x':e.pageX - cons.TOUCH_START_COORDS.x, 'y':e.pageY - cons.TOUCH_START_COORDS.y};
+    cons.ELAPSED_TIME = new Date().getTime() - cons.START_TIME;
+    if (cons.ELAPSED_TIME <= cons.MAX_ALLOWED_TIME){
+      if (Math.abs(cons.TOUCH_END_COORDS.x) >= cons.MIN_DISTANCE_X_AXIS && Math.abs(cons.TOUCH_END_COORDS.y) <= cons.MAX_DISTANCE_Y_AXIS){
+        cons.DIRECTION = (cons.TOUCH_END_COORDS.x < 0)? 'left' : 'right';
+        switch(cons.DIRECTION){
+          case 'left':
+            index = radioOn.id.charAt(8);
+            if (Number(index) === slides) {
+              index = 0;
+            }
+            inputs[index].checked = true; // Т.к. не отняли еденицу от индекса, то это уже нужный идекс следующего слайда
+            // Симулировать событие
+            inputs[index].dispatchEvent(changeEvent);
+            break;
+          case 'right':
+            index = Number(radioOn.id.charAt(8)) - 2;
+            if ((index + 1) === 0) {
+              index = slides -1 ;
+            }
+            inputs[index].checked = true; // Т.к. не отняли еденицу от индекса, то это уже нужный идекс следующего слайда
+            // Симулировать событие
+            inputs[index].dispatchEvent(changeEvent);
+            break;
+        }
+      }
+    }
+  };
+
+  var addMultipleListeners = function (el, s, fn) {
+    var evts = s.split(' ');
+    for (var i=0, iLen=evts.length; i<iLen; i++) {
+      el.addEventListener(evts[i], fn, false);
+    }
+  };
+  // end Swipe
+
   var renderSlider = function (slides, url) {
 
     // Получение из шаблона
@@ -23,13 +82,8 @@
         input.checked = true;
       }
       slider.insertBefore(input, wrapper);
-      // Задает фоновую картинку на основе аргумента и id инпута
-      input.addEventListener('change', function (evt) {
-        var radioOn = document.querySelectorAll('input:checked');
-        var slideId = evt.target.id.charAt(8);
-        var src = url + slideId + '-full.jpg';
-        wrapper.style.backgroundImage = 'url(' + src + ')';;
-      });
+      // Задает фоновую картинку на основе аргумента (урл картинки) и id инпута
+      input.addEventListener('change', function (evt) {onInputChange(evt, url, wrapper)});
 
       // Создать label
       var label = document.createElement('label');
@@ -48,10 +102,25 @@
     imgContainer.appendChild(slider);
     // Выбор первого при отрисовке
     wrapper.style.backgroundImage = 'url(' + url + '1-full.jpg' + ')';
+    addMultipleListeners(slider, 'mousedown touchstart', swipeStart);
+    addMultipleListeners(slider, 'mousemove touchmove', swipeMove);
+    addMultipleListeners(slider, 'mouseup touchend', function (e){swipeEnd(e, slides)});
+  };
+
+  var onInputChange = function (evt, url, wrapper) {
+    var radioOn = document.querySelectorAll('input:checked');
+    var slideId = evt.target.id.charAt(8);
+    var src = url + slideId + '-full.jpg';
+    // Показ слайда
+    wrapper.style.backgroundImage = 'url(' + src + ')';
   };
 
 
   window.funcs = {
-    renderSlider:renderSlider
+    renderSlider:renderSlider,
+    swipeStart: swipeStart,
+    swipeMove: swipeMove,
+    swipeEnd: swipeEnd,
+    addMultipleListeners: addMultipleListeners
   };
 })();
