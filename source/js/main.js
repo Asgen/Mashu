@@ -2,10 +2,6 @@
 var tabLinks = document.querySelector('.tabs');
 
 var imgContainer = document.querySelector('.image-container__wrapper');
-var description = document.querySelector('.description');
-var heading = description.querySelector('h3');
-var parag = description.querySelector('p');
-
 var mainPic = document.querySelector('.image-container__bgpic');
 
 tabLinks.addEventListener('click', function (e) {
@@ -33,12 +29,5 @@ tabLinks.addEventListener('click', function (e) {
     // Отрисовка слайдера
     window.funcs.renderSlider(slidesAmount, slideSrc);
   }
-
-  var headingText = e.target.parentElement.querySelector('h3');
-  var paragText = e.target.parentElement.querySelector('p');
-  headingText = headingText.textContent;
-  paragText = paragText.textContent;
-
-  heading.textContent = headingText;
-  parag.textContent = paragText;
+  window.showDescription(e);
 });
