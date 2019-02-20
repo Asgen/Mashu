@@ -1,0 +1,12 @@
+@media (min-width: $tablet-width ) {
+  .content-container {
+    max-width: $tablet-width;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: $desktop-width ) {
+  .content-container {
+    max-width: $desktop-width;
+  }
+}

@@ -15,15 +15,27 @@ $black-color-opacity: rgba(0, 0, 0, 0.3);
 $green-color: #2aab6d;
 $green-color-hover: #1c9b5e;
 
+$wide-mobile-width: 414px;
 $tablet-width: 660px;
 $desktop-width: 960px;
 $retina-dpi: 144dpi;
 $retina-dppx: 1.5dppx;
 
-$tablet-table-heading-size: 15px;
-$tablet-table-heading-height: 19px;
-$general-text-size: 14px;
-$general-text-line-height: 17px;
+$xs-heading-font-size: 15px;
+$xs-heading-line-height: 19px;
+$xs-text-size: 14px;
+$xs-line-height: 17px;
+$md-heading-font-size: 16px;
+$md-heading-line-height: 20px;
+$md-text-size: 15px;
+$md-line-height: 22px;
+$xl-heading-font-size: 20px;
+$xl-heading-line-height: 28px;
+$xl-text-size: 16px;
+$xl-line-height: 23px;
+
+$link-text-size: 12px;
+$link-line-height: 20px;
 
 
 @mixin general-heading-bold {
@@ -51,13 +63,13 @@ $general-text-line-height: 17px;
 }
 
 @mixin general-text-std {
-  font-size: $general-text-size;
+  font-size: $xs-text-size;
   line-height: $text-line-height;
   font-weight: normal;
 }
 
 @mixin general-text-lengthy {
-  font-size: $general-text-size;
+  font-size: $xs-text-size;
   line-height: $heading-line-height;
   font-weight: normal;
 }
