@@ -3,6 +3,9 @@
   // Адрес
   var DIR = 'http://localhost:3000/';
 
+  // Desktop брэйкпоинт
+  //var DESKTOP_WIDTH = 960;
+
   // Swipe data
   var Swipe = {
     TOUCH_START_COORDS: {'x':-1, 'y':-1},
@@ -17,6 +20,7 @@
 
   window.data = {
     DIR: DIR,
+    //DESKTOP_WIDTH: DESKTOP_WIDTH,
     Swipe: Swipe
   };
 })();

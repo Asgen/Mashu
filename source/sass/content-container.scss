@@ -1,5 +1,6 @@
 @media (min-width: $tablet-width ) {
   .content-container {
+    position: relative;
     max-width: $tablet-width;
     margin: 0 auto;
   }
@@ -7,6 +8,13 @@
 
 @media (min-width: $desktop-width ) {
   .content-container {
-    max-width: $desktop-width;
+    max-width: none;
   }
 }
+
+@media (min-width: $max-screen ) {
+  .content-container {
+    max-width: $max-screen;
+  }
+}
+

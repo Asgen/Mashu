@@ -1,4 +1,4 @@
-$main-color: #283645;
+$main-color: rgb(56,152,236);
 $opacity-color: rgba(40, 54, 69, 0.3);
 $opacity-color-05: rgba(40, 54, 69, 0.5);
 $slider-bellet-on-hover: rgba(40, 54, 69, 0.6);
@@ -12,14 +12,21 @@ $white-color: #ffffff;
 $white-transparent: rgba(255, 255, 255, 0.3);
 $black-color: #000000;
 $black-color-opacity: rgba(0, 0, 0, 0.3);
+$black-color-opacity09: rgba(0, 0, 0, 0.9);
 $green-color: #2aab6d;
 $green-color-hover: #1c9b5e;
 
 $wide-mobile-width: 414px;
 $tablet-width: 660px;
 $desktop-width: 960px;
+$max-screen: 1980px;
 $retina-dpi: 144dpi;
 $retina-dppx: 1.5dppx;
+
+$menu-heading-size: 27.5px;
+$menu-line-height: 49.5px;
+$menu-heading-md-size: 35px;
+$menu-line-md-height: 63px;
 
 $xs-heading-font-size: 15px;
 $xs-heading-line-height: 19px;

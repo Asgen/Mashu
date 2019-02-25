@@ -1,6 +1,9 @@
 @import "fonts.scss";
 @import "normalize.scss";
 @import "variables.scss";
+@import "header/main-header.scss";
+@import "footer/main-footer.scss";
+@import "header/main-nav.scss";
 @import "content-container.scss";
 @import "slider/slider.scss";
 @import "image.container/image-container.scss";
@@ -11,6 +14,16 @@ body {
   position: relative;
 
   font-family: "Open Sans", "Arial", sans-serif;
+}
+
+a {
+  color: $white-color;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a:hover {
+  color: $main-color;
 }
 
 .visually-hidden {

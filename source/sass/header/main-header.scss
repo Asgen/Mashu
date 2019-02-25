@@ -1,0 +1,58 @@
+.main-header {
+  height: 8vh;
+  position: relative;
+  margin-bottom: 1vh;
+
+  background-color: $black-color-opacity09;
+
+  &__menu-button {
+    position: absolute;
+    width: 45px;
+    height: 27px;
+
+    top: 50%;
+    left: 13px;
+    transform: translateY(-50%);
+  }
+
+  &__menu-button-el {
+    display: block;
+    height: 3px;
+    width: 100%;
+
+    @include margin-killer;
+
+    background: hsl(0, 0, 100);
+    margin-top: 8px;
+
+    float: left;
+    clear: both;
+
+    transition: all 150ms ease-out;
+  }
+
+  &__menu-button-el:first-of-type {
+    margin-top: 0;
+  }
+
+  &__menu-button-el:nth-of-type(2) {
+    width: 70.38%;
+  }
+
+  &__menu-button-el:last-of-type {
+    width: 83.53%;
+  }
+
+  &__menu-button:hover &__menu-button-el {
+    width: 63%;
+  }
+}
+
+@media (min-width: $wide-mobile-width) {
+  .main-header {
+  
+    &__menu-button {
+      left: 20px;
+    }  
+  }
+}

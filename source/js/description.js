@@ -6,29 +6,39 @@
 
   var onReadMoreClick = function () {
     more.style.display = 'inline';
-    if (dots.style.display === "none") {
+    if (dots.style.display === 'none') {
       window.scroll({
         top: 0,
         left: 0,
         behavior: 'smooth'
       });
-      description.style.maxHeight = "14vh";
-      description.style.minHeight = "14vh";
-      more.style.opacity = "0";
-      readMoreButton.style.opacity = "0";
+      description.style.maxHeight = '22vh';
+      description.style.minHeight = '22vh';
+      more.style.opacity = '0';
+      readMoreButton.style.opacity = '0';
       setTimeout(function() {
-        more.style.display = "none";
-        readMoreButton.style.opacity = "1";
+        more.style.display = 'none';
+        readMoreButton.style.opacity = '1';
       }, 300);
-      dots.style.display = "block";
-      readMoreButton.innerHTML = "Читать еще";
-    } else {
-      description.style.maxHeight = "1000px";
-      description.style.minHeight = "100px";
-      dots.style.display = "none";
-      readMoreButton.innerHTML = "Свернуть";
-      more.style.display = "inline";
-      more.style.opacity = "1";
+      dots.style.display = 'block';
+      readMoreButton.innerHTML = 'Читать еще';
+      readMoreButton.style.paddingBottom = '9px';
+    } else {      
+      description.style.maxHeight = '1000px';
+      description.style.minHeight = '100px';
+      dots.style.display = 'none';
+      readMoreButton.innerHTML = 'Свернуть';
+      readMoreButton.style.paddingBottom = '40px';
+      more.style.display = 'inline';
+      more.style.opacity = '1';
+     
+      setTimeout(function() {
+        window.scroll({
+          top: document.body.scrollHeight,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }, 200);
       //fadeIn(more);
     }
   };
@@ -38,7 +48,8 @@
     var parag = description.querySelector('p');
 
     // Description
-    description.style.minHeight = "14vh";
+    description.style.minHeight = '22vh';
+    description.style.maxHeight = '22vh';
     var headingText = e.target.parentElement.querySelector('h3');
     var paragText = e.target.parentElement.querySelector('p');
     var moreText = e.target.parentElement.querySelector('.tabs__more');
@@ -47,9 +58,9 @@
     heading.textContent = headingText;
     parag.textContent = paragText;
 
-    dots.style.display = "block";
-    readMoreButton.innerHTML = "Читать еще";
-    more.style.display = "none";
+    dots.style.display = 'block';
+    readMoreButton.innerHTML = 'Читать еще';
+    more.style.display = 'none';
 
     if (moreText) {
       dots.style.display = 'block';

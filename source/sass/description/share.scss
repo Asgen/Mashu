@@ -1,0 +1,18 @@
+.share {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+
+  &__link {
+    display: inline-block;
+
+    margin: 10px 0;
+    margin-right: 10px;
+
+    opacity: 0.3;
+  }
+
+  &__link:hover {
+    opacity: 1;
+  }
+}
