@@ -15,7 +15,7 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease-in-out;
-  
+
   &__list {
     @include list-killer;
     width: 100%;
@@ -98,10 +98,74 @@
 
 @media (min-width: $wide-mobile-width) {
   .main-nav {
-  
+
     &__close {
       top: 13px;
       left: 25px;
-    }  
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .main-nav {
+
+    &__close {
+      top: 25px;
+      left: 30px;
+    }
+  }
+}
+
+
+@media (min-width: $desktop-width) {
+  .main-nav {
+    position: static;
+    height: 100%;
+    width: auto;
+    display: flex;
+
+    margin: 0 auto;
+    align-items: center;
+
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+
+    background-color: transparent;
+
+    &__close {
+      display: none;
+    }
+
+    &__list {
+      display: block;
+      width: 100%;
+
+      padding: 0;
+      padding-left: 40px;
+      margin: 0 auto;
+    }
+
+    &__item {
+      display: inline;
+
+      margin-right: 25px;
+
+      font-size: $md-heading-font-size;
+    }
+  }
+}
+
+@media (min-width: $max-screen) {
+  .main-nav {
+
+    &__list {
+      padding-left: 60px;
+    }
+
+    &__item {
+      margin-right: 50px;
+      font-size: $xl-heading-font-size;
+    }
   }
 }

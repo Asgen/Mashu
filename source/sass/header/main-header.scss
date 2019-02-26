@@ -46,13 +46,38 @@
   &__menu-button:hover &__menu-button-el {
     width: 63%;
   }
+
+  &__logo {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translateY(-50%);
+    color: $white-color;
+  }
 }
 
 @media (min-width: $wide-mobile-width) {
   .main-header {
-  
+
+    &__logo {
+      font-size: $md-heading-font-size;
+    }
+
     &__menu-button {
       left: 20px;
-    }  
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .main-header {
+
+    &__logo {
+      font-size: $xl-heading-font-size;
+    }
+
+    &__menu-button {
+      display: none;
+    }
   }
 }
