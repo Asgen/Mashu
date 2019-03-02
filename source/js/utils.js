@@ -12,7 +12,6 @@
 
   var swipeMove = function (e){
     e = e ? e : window.event;
-    e.preventDefault();
   };
 
   var swipeEnd = function (e, slides) {
@@ -59,14 +58,14 @@
   // end Swipe
 
   var renderSlider = function (slides, url) {
-
     // Получение из шаблона
     var sliderTemplate = document.querySelector('#slider')
     .content
     .querySelector('.slider-container');
 
     var slider = sliderTemplate.cloneNode(true);
-    var wrapper = slider.querySelector('.wrapper');
+    //var wrapper = slider.querySelector('.wrapper');
+    var controlSection = slider.querySelector('.slider');
     var controls = slider.querySelector('.slider-controls');
     var sliderList = slider.querySelector('.slider-list');
 
@@ -81,9 +80,9 @@
       if(i === 0) {
         input.checked = true;
       }
-      slider.insertBefore(input, wrapper);
-      // Задает фоновую картинку на основе аргумента (урл картинки) и id инпута
-      input.addEventListener('change', function (evt) {onInputChange(evt, url, wrapper)});
+      slider.insertBefore(input, controlSection);
+      // Смена слайдов при смене radio-button
+      input.addEventListener('change', function (evt) {onInputChange(evt, url)});
 
       // Создать label
       var label = document.createElement('label');
@@ -100,19 +99,20 @@
 
     // Отрисовка слайдера
     imgContainer.appendChild(slider);
-    // Выбор первого при отрисовке
-    wrapper.style.backgroundImage = 'url(' + url + '1-full.jpg' + ')';
+
     addMultipleListeners(slider, 'mousedown touchstart', swipeStart);
     addMultipleListeners(slider, 'mousemove touchmove', swipeMove);
     addMultipleListeners(slider, 'mouseup touchend', function (e){swipeEnd(e, slides)});
   };
 
-  var onInputChange = function (evt, url, wrapper) {
+  var onInputChange = function (evt, url) {
     var radioOn = document.querySelectorAll('input:checked');
     var slideId = evt.target.id.charAt(8);
-    var src = url + slideId + '-full.jpg';
-    // Показ слайда
-    wrapper.style.backgroundImage = 'url(' + src + ')';
+
+    window.data.changeSrcsets(evt, slideId, url);
+
+    // Установка фона из src-set'a
+    new ResponsiveBackgroundImage(mainPic);
   };
 
 

@@ -1,12 +1,20 @@
 .share {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  & img {
+    margin-right: 15px;
+  }
+
+  &__links {
+    margin: 10px 0;
+  }
 
   &__link {
     display: inline-block;
 
-    margin: 10px 0;
+    margin: 0;
     margin-right: 10px;
 
     opacity: 0.3;
@@ -14,5 +22,14 @@
 
   &__link:hover {
     opacity: 1;
+  }
+}
+
+@media (min-width: $wide-mobile-width) {
+  .share {
+
+    &__links {
+      margin: 20px 0;
+    }
   }
 }

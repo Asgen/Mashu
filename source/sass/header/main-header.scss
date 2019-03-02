@@ -51,13 +51,15 @@
     position: absolute;
     top: 53%;
     left: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
     color: $white-color;
   }
 }
 
 @media (min-width: $wide-mobile-width) {
   .main-header {
+    height: 7vh;
+    margin-bottom: 2vh;
 
     &__logo {
       font-size: $md-heading-font-size;
@@ -74,6 +76,7 @@
 
     &__logo {
       font-size: $xl-heading-font-size;
+      transform: translateY(-50%);
     }
 
     &__menu-button {

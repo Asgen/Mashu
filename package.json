@@ -4,6 +4,7 @@
   "private": true,
   "description": "Личный проект «Пинк» от HTML Academy",
   "devDependencies": {
+    "@babel/plugin-transform-classes": "^7.3.4",
     "@htmlacademy/editorconfig-cli": "1.x",
     "autoprefixer": "9.1.x",
     "browser-sync": "2.24.x",

@@ -22,16 +22,14 @@
       }, 300);
       dots.style.display = 'block';
       readMoreButton.innerHTML = 'Читать еще';
-      readMoreButton.style.paddingBottom = '9px';
-    } else {      
+    } else {
       description.style.maxHeight = '1000px';
       description.style.minHeight = '100px';
       dots.style.display = 'none';
       readMoreButton.innerHTML = 'Свернуть';
-      readMoreButton.style.paddingBottom = '40px';
       more.style.display = 'inline';
       more.style.opacity = '1';
-     
+
       setTimeout(function() {
         window.scroll({
           top: document.body.scrollHeight,

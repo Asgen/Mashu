@@ -26,14 +26,9 @@
   }
 }
 
-@media (min-width: $tablet-width) {
-  .page-footer__id {
-    display: block;
-  }
-}
-
 @media (min-width: $desktop-width) {
-  .page-footer {
+  .main-footer {
+    height: 7vh;
     padding: 0 50px;
   }
 }

@@ -1,4 +1,5 @@
 .image-container {
+  position: relative;
   height: 56vh;
 
   box-sizing: border-box;
@@ -18,7 +19,6 @@
   &__bgpic {
     width: 100%;
     height: 100%;
-    background-image: url("http://placehold.it/300");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -35,6 +35,6 @@
 @media (min-width: $desktop-width) {
   .image-container {
     width: 80%;
-    height: 84vh;
+    height: 69vh;
   }
 }

@@ -4,50 +4,52 @@ var tabLinks = document.querySelector('.tabs');
 var imgContainer = document.querySelector('.image-container__wrapper');
 var mainPic = document.querySelector('.image-container__bgpic');
 
-class ResponsiveBackgroundImage {
-    constructor (element) {
-        this.element = element;
-        this.img = element.querySelector('.source-img');
-        this.src = '';
-        var that = this;
-
-        this.img.addEventListener('load', function () {
-            that.update();
-        });
-
-        if (this.img.complete) {
-            this.update();
-        }
-    }
-
-    update () {
-        let src = typeof this.img.currentSrc !== 'undefined' ? this.img.currentSrc : this.img.src;
-        if (this.src !== src) {
-            this.src = src;
-            this.element.style.backgroundImage = 'url("' + this.src + '")';
-
-        }
-    }
+// Картинка openGraph
+var meta = document.querySelectorAll('meta');
+var metaImg;
+for (var i = 0; i < meta.length; i++) {
+  if (meta[i].attributes.property && meta[i].attributes.property.value === 'og:image') {
+    metaImg = meta[i];
+  }
 }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ResponsiveBackgroundImage = function () {
+  function ResponsiveBackgroundImage(element) {
+    _classCallCheck(this, ResponsiveBackgroundImage);
+
+    this.element = element;
+    this.img = element.querySelector('.source-img');
+    this.src = '';
+    var that = this;
+
+    this.img.addEventListener('load', function () {
+        that.update();
+    });
+
+    if (this.img.complete) {
+        this.update();
+    }
+  }
+
+  ResponsiveBackgroundImage.prototype.update = function update() {
+    let src = typeof this.img.currentSrc !== 'undefined' ? this.img.currentSrc : this.img.src;
+    if (this.src !== src) {
+        this.src = src;
+        this.element.style.backgroundImage = 'url("' + this.src + '")';
+    }
+  };
+
+  return ResponsiveBackgroundImage;
+}();
 
 tabLinks.addEventListener('click', function (e) {
 
-  var pictureTag = document.querySelector('picture');
-  // Разметка
-  var set = pictureTag.innerHTML.split('-big.jpg', 1); // (<source media="(min-width: 660px)" srcset="img/) - 47 символов
+  window.data.changeSrcsets(e);
 
-  // Меняем src
-  var replaceThis = set[0].slice(47); // Старая картинка
-  var newPicture = e.target.src.slice((window.data.DIR.length + 4), -4); // +4 это "img/", -4 это ".jpg"
-  console.log(replaceThis);
-  var re = new RegExp(replaceThis, "g"); // Все совпадения
-  var oldSet = pictureTag.innerHTML; // Разметка до замены
-  var newSet = oldSet.replace(re, newPicture); // Разметка после замены
-  //console.log(pictureTag.innerHTML);
-
-  pictureTag.innerHTML = newSet; // Вставляем с новыми ссылками
-
-  
+  // Подстановкка openGraph
+  metaImg.content = mainPic.style.backgroundImage.slice(5, -2);
 
   if(mainPic.style.display = 'none') {
     mainPic.style.display = 'block';
@@ -63,18 +65,13 @@ tabLinks.addEventListener('click', function (e) {
   if (e.target.parentElement.textContent.startsWith('slider')) {
     // Количество слайдов
     var slidesAmount = Number(e.target.parentElement.innerText.charAt(7));
-    mainPic.style.display = 'none';
     // Ссылка
-    var slideSrc = e.target.src.slice(window.data.DIR.length, -5);
-
+    var slideSrc = e.target.src.slice(window.data.DIR.length, -4); // img/indi-cow-1(.jpg)
     // Отрисовка слайдера
     window.funcs.renderSlider(slidesAmount, slideSrc);
-  }
+}
 
   window.showDescription(e);
-
-
   // Установка фона из src-set'a
   new ResponsiveBackgroundImage(mainPic);
-
 });

@@ -1,4 +1,4 @@
-@media (min-width: $tablet-width ) {
+@media (min-width: $tablet-width) {
   .content-container {
     position: relative;
     max-width: $tablet-width;
@@ -6,15 +6,14 @@
   }
 }
 
-@media (min-width: $desktop-width ) {
+@media (min-width: $desktop-width) {
   .content-container {
     max-width: none;
   }
 }
 
-@media (min-width: $max-screen ) {
+@media (min-width: $max-screen) {
   .content-container {
     max-width: $max-screen;
   }
 }
-
