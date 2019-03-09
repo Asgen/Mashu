@@ -64,3 +64,72 @@
 #product-9:checked ~ .slider label[for="product-9"] {
   background-color: $dark-gray-color;
 }
+
+@media (min-width: $desktop-width) {
+  .slider-container__prev,
+  .slider-container__next {
+    position: absolute;
+    width: 17px;
+    height: 25px;
+    top: 50%;
+  }
+
+  .slider-container__prev {
+    left: 1%;
+  }
+
+  .slider-container__next {
+    right: 1%;
+  }
+
+  .slider-container__prev::before,
+  .slider-container__next::before,
+  .slider-container__prev::after,
+  .slider-container__next::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 60%;
+    height: 2px;
+
+    background-color: $gray-color;
+  }
+
+  .slider-container__next:hover::before,
+  .slider-container__next:hover::after {
+    background-color: $dark-gray-color;
+  }
+
+  .slider-container__prev:hover::before,
+  .slider-container__prev:hover::after {
+    background-color: $dark-gray-color;
+  }
+
+  .slider-container__next::before,
+  .slider-container__next::after {
+    left: 0;
+    transform-origin: right;
+  }
+
+  .slider-container__prev::after,
+  .slider-container__prev::before {
+    transform-origin: left;
+    right: 0;  
+  }
+
+  .slider-container__prev::before {
+    transform: rotate(-45deg);
+  }
+
+  .slider-container__prev::after {
+    transform: rotate(45deg);
+  }
+
+  .slider-container__next::before {
+    transform: rotate(45deg);
+  }
+
+  .slider-container__next::after {
+    transform: rotate(-45deg);
+  }
+}

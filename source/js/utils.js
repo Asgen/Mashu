@@ -3,6 +3,35 @@
   var cons = window.data.Swipe;
   // Create a new 'change' event
   var changeEvent = new Event('change');
+
+  var pushNextSlide = function (slides) {
+    var inputs = document.querySelectorAll('input[type="radio"]');
+    var radioOn = document.querySelector('input[type="radio"]:checked');
+    var index;
+
+    index = radioOn.id.charAt(8);
+    if (Number(index) === slides) {
+      index = 0;
+    }
+    inputs[index].checked = true; // Т.к. не отняли еденицу от индекса, то это уже нужный идекс следующего слайда
+    // Симулировать событие
+    inputs[index].dispatchEvent(changeEvent);
+  };
+
+  var pushPrevSlide = function (slides) {
+    var inputs = document.querySelectorAll('input[type="radio"]');
+    var radioOn = document.querySelector('input[type="radio"]:checked');
+    var index;
+
+    index = Number(radioOn.id.charAt(8)) - 2;
+    if ((index + 1) === 0) {
+      index = slides -1 ;
+    }
+    inputs[index].checked = true; // Т.к. не отняли еденицу от индекса, то это уже нужный идекс следующего слайда
+    // Симулировать событие
+    inputs[index].dispatchEvent(changeEvent);
+  };
+
   var swipeStart = function (e) {
     e = e ? e : window.event;
     e = ('changedTouches' in e)?e.changedTouches[0] : e;
@@ -15,9 +44,6 @@
   };
 
   var swipeEnd = function (e, slides) {
-    var inputs = document.querySelectorAll('input[type="radio"]');
-    var radioOn = document.querySelector('input[type="radio"]:checked');
-    var index;
     e = e ? e : window.event;
     e = ('changedTouches' in e)?e.changedTouches[0] : e;
     cons.TOUCH_END_COORDS = {'x':e.pageX - cons.TOUCH_START_COORDS.x, 'y':e.pageY - cons.TOUCH_START_COORDS.y};
@@ -27,22 +53,10 @@
         cons.DIRECTION = (cons.TOUCH_END_COORDS.x < 0)? 'left' : 'right';
         switch(cons.DIRECTION){
           case 'left':
-            index = radioOn.id.charAt(8);
-            if (Number(index) === slides) {
-              index = 0;
-            }
-            inputs[index].checked = true; // Т.к. не отняли еденицу от индекса, то это уже нужный идекс следующего слайда
-            // Симулировать событие
-            inputs[index].dispatchEvent(changeEvent);
+            pushNextSlide(slides);
             break;
           case 'right':
-            index = Number(radioOn.id.charAt(8)) - 2;
-            if ((index + 1) === 0) {
-              index = slides -1 ;
-            }
-            inputs[index].checked = true; // Т.к. не отняли еденицу от индекса, то это уже нужный идекс следующего слайда
-            // Симулировать событие
-            inputs[index].dispatchEvent(changeEvent);
+            pushPrevSlide(slides);
             break;
         }
       }
@@ -64,7 +78,6 @@
     .querySelector('.slider-container');
 
     var slider = sliderTemplate.cloneNode(true);
-    //var wrapper = slider.querySelector('.wrapper');
     var controlSection = slider.querySelector('.slider');
     var controls = slider.querySelector('.slider-controls');
     var sliderList = slider.querySelector('.slider-list');
@@ -99,6 +112,12 @@
 
     // Отрисовка слайдера
     imgContainer.appendChild(slider);
+
+    // Смена слайдов стрелками
+    var prev = document.querySelector('.slider-container__prev');
+    var next = document.querySelector('.slider-container__next');
+    prev.addEventListener('click', function () {pushPrevSlide(slides)});
+    next.addEventListener('click', function () {pushNextSlide(slides)});
 
     addMultipleListeners(slider, 'mousedown touchstart', swipeStart);
     addMultipleListeners(slider, 'mousemove touchmove', swipeMove);
