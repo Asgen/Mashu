@@ -1,6 +1,9 @@
+.content-container {
+  position: relative;
+}
+
 @media (min-width: $tablet-width) {
   .content-container {
-    position: relative;
     max-width: $tablet-width;
     margin: 0 auto;
   }
