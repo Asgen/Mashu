@@ -45,7 +45,13 @@ var ResponsiveBackgroundImage = function () {
 }();
 
 tabLinks.addEventListener('click', function (e) {
+  var wasActive = document.querySelector('.tabs__tab--active');
 
+  if (wasActive) {
+    wasActive.classList.remove('tabs__tab--active');
+  }
+
+  e.target.parentElement.classList.add('tabs__tab--active');
   window.data.changeSrcsets(e);
 
   // Подстановкка openGraph
