@@ -18,7 +18,7 @@
     switch(state){
       case 'open':
         parcer();
-        menu.style.zIndex = '1';
+        menu.style.zIndex = '10';
         menu.style.opacity = '1';
         menu.style.visibility = 'visible';
         for (var i = 0; i < links.length; i++) {

@@ -28,6 +28,10 @@ a:hover {
   color: $main-color;
 }
 
+img {
+  max-height: 100%;
+}
+
 .visually-hidden {
   position: absolute;
 
