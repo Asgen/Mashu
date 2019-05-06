@@ -99,6 +99,10 @@
   &__close:hover::after {
     transform: rotate(0deg);
   }
+
+  &__link--active {
+    color: $main-color-light;
+  }
 }
 
 @media (min-width: $wide-mobile-width) {
