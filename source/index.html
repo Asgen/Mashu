@@ -1,64 +1,98 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta property="og:url" content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
-    <meta property="og:title" content="Moshchenskaia Mariia" />
-    <meta property="og:description" content="Art works and masterpieces" />
-    <meta property="og:image" content="blabla"/>
+    <meta property="og:url" content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html">
+    <meta property="og:title" content="Moshchenskaia Mariia">
+    <meta property="og:description" content="Art works and masterpieces">
+    <meta property="og:image" content="blabla">
     <title>Moshchenskaia Mariia</title>
     <link rel="stylesheet" href="css/style.min.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <header class="main-header">
-      <div class="main-header__menu-button">
-        <span class="main-header__menu-button-el"></span>
-        <span class="main-header__menu-button-el"></span>
-        <span class="main-header__menu-button-el"></span>
-      </div>
-      <div class="main-header__logo">MOSHCHENSKAIA MARIIA
-      </div>
-
-      <nav class="main-nav">
-        <div class="main-nav__close">
-        </div>
-        <ul class="main-nav__list">
-          <li class="main-nav__item">
-            <a href="gallery.html" class="main-nav__link">Gallery</a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#" class="main-nav__link main-nav__link--active">Home</a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#" class="main-nav__link">About</a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#" class="main-nav__link">Contacts</a>
-          </li>
-        </ul>
-      </nav>
+        <div class="main-header__menu-button"><span class="main-header__menu-button-el"></span> <span class="main-header__menu-button-el"></span> <span class="main-header__menu-button-el"></span></div>
+        <div class="main-header__logo">MOSHCHENSKAIA MARIIA</div>
+        <nav class="main-nav">
+            <div class="main-nav__close"></div>
+            <ul class="main-nav__list">
+                <li class="main-nav__item"><a href="gallery.html" class="main-nav__link">Gallery</a></li>
+                <li class="main-nav__item"><a href="#" class="main-nav__link main-nav__link--active">Home</a></li>
+                <li class="main-nav__item"><a href="#" class="main-nav__link">About</a></li>
+                <li class="main-nav__item"><a href="#" class="main-nav__link">Contacts</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <main class="content-container">
-      <div class="main-wrapper">
-        
-      </div>
-    </main>
-
+    <div class="content-container content-container--main">
+        <div class="main">
+            <ul class="main__list">
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/bear-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/anna-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/angular-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/bear-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/anna-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/angular-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/bear-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/anna-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/angular-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/bear-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/anna-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/angular-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/bear-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/anna-1.jpg" alt=""></div>
+                </li>
+                <li class="main__item">
+                    <div class="main__item-wrapper"><img width="100%" src="/img/angular-1.jpg" alt=""></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="lightbox">
+        <div class="lightbox__close"></div>
+        <div class="lightbox__wrapper">
+            <div class="lightbox__container" style="background-image: url('http://placehold.it/300')">
+                <picture style="display: none;">
+                    <source media="(min-width: 960px)" srcset="img/anna-1-big.jpg, img/anna-1-big2x.jpg 2x">
+                    <source media="(min-width: 660px)" srcset="img/anna-1-medium.jpg, img/anna-1-big.jpg 2x">
+                    <source media="(min-width: 200px)" srcset="img/anna-1-small.jpg, img/anna-1-small.jpg 2x"><img class="lightbox__img" src="img/anna-1-small.jpg" srcset="img/anna-1-small.jpg 2x" alt="Maria Moshchenskaia's picture"></picture>
+            </div>
+        </div>
+    </div>
     <footer class="main-footer">
-      <div class="main-footer__social-block">
-        <a href="#" class="main-footer__link">Instagram</a>
-        <span>/</span>
-        <a href="#" class="main-footer__link">vk</a>
-        <span>/</span>
-        <a href="#" class="main-footer__link">behance</a>
-      </div>
-      <div class="main-footer__lang-block">
-        <a href="#" class="main-footer__link">madeBy</a>
-      </div>
+        <div class="main-footer__social-block"><a href="#" class="main-footer__link">Instagram</a> <span>/</span> <a href="#" class="main-footer__link">vk</a> <span>/</span> <a href="#" class="main-footer__link">behance</a></div>
+        <div class="main-footer__lang-block"><a href="#" class="main-footer__link">madeBy</a></div>
     </footer>
+    <script src="/js/all-main.js"></script>
+</body>
 
-    <script src="/js/all.js"></script>
-  </body>
 </html>
